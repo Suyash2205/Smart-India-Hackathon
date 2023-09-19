@@ -71,25 +71,11 @@ function openMapInput() {
         draggable: true
     });
 
-    // Link the search bar to the map
     var input = document.getElementById('search-input');
     input.style.display = 'block';
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    // Function to update the search input with the address of the marker's position
-    function updateSearchInputWithAddress(latLng) {
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({'location': latLng}, function(results, status) {
-            if (status === 'OK' && results[0]) {
-                document.getElementById('search-input').value = results[0].formatted_address;
-            } else {
-                console.error('Geocoder failed due to: ' + status);
-            }
-        });
-    }
-
-    // Listen for the event when the user selects a prediction and retrieve more details for that place.
     searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
 
@@ -118,9 +104,6 @@ function openMapInput() {
     google.maps.event.addListener(marker, 'dragend', function(event) {
         document.getElementById('results').innerHTML = "Latitude: " + event.latLng.lat() + 
         "<br>Longitude: " + event.latLng.lng();
-        
-        // Update the search input with the address of the new marker position
-        updateSearchInputWithAddress(event.latLng);
     });
 }
 
