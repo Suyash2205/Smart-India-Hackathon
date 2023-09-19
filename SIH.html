@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Waste Facility Locator</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Combine the two Google Maps script tags into one and include the Places library -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-_ir6l2xrl54s7YopU4bPWdM-wUGvbvA&libraries=places&callback=initMap" async defer></script>
 </head>
 <body>
@@ -22,7 +21,6 @@
                 <a href="#" onclick="openMapInput()">Enter location manually</a>
             </div>
         </div>
-        <!-- Added input for location search -->
         <input id="search-input" type="text" placeholder="Search for places..." style="display: none; width: 300px; font-size: 16px;">
         <div id="map" style="width: 100%; height: 400px; display: none;"></div>
         <div id="results"></div>
